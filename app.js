@@ -20,3 +20,28 @@ buttonelement.forEach((element) => {
         }
     })
 })
+document.addEventListener('keydown',(key)=>
+{
+  console.log(key.key);
+  if(key.key === "Escape")
+    {
+      screen.innerText = "";
+    }
+    else if(key.key === "Backspace")
+    {
+      let str = screen.innerText.toString();
+      screen.innerText = str.substr(0,str.length - 1);
+    }
+    else if(screen.innerText != "" && key.key === "Enter")
+    {
+      screen.innerText = eval(screen.innerText);
+    }
+    else if(screen.innerText == "" && key.key === "Enter")
+    {
+      screen.innerText = "Empty!";
+    }
+    else
+    {
+      screen.innerText += key.key;
+    }
+});
